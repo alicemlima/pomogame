@@ -1,47 +1,58 @@
 package com.alicemlima.pomogame.model.entities;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 @Entity
 public class Task {
 
     public Task() {
     }
 
-    public Task(String name) {
+    public Task(String name, int qtdPomodoros) {
         this.name = name;
+        this.qtdPomodoros = qtdPomodoros;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private int qtPomodoros;
+    private int qtdPomodoros;
 
-    public int getId() {
+    protected int getId() {
         return id;
     }
 
-    public void setId(int id) {
+    protected void setId(int id) {
         this.id = id;
     }
 
-    public String getName() {
+    protected String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    protected void setName(String name) {
         this.name = name;
     }
 
-    public int getQtPomodoros() {
-        return qtPomodoros;
+    protected int getQtdPomodoros() {
+        return qtdPomodoros;
     }
 
-    public void setQtPomodoros(int qtPomodoros) {
-        this.qtPomodoros = qtPomodoros;
+    protected void setQtdPomodoros(int qtdPomodoros) {
+        this.qtdPomodoros = qtdPomodoros;
     }
+
+    public int timeComplete(){
+        if (getQtdPomodoros() > 0){
+            setQtdPomodoros(getQtdPomodoros() - 1);
+            return getQtdPomodoros();
+        }
+        else {
+            return 0;
+        }
+    }
+
+
 }
