@@ -9,50 +9,53 @@ public class Task {
     public Task() {
     }
 
-    public Task(String name, int qtdPomodoros) {
+    public Task(String name, int qttPomodoros) {
         this.name = name;
-        this.qtdPomodoros = qtdPomodoros;
+        this.qttPomodoros = qttPomodoros;
     }
+    public Task(String name, int qttPomodoros, int cpdPomodoros) {
+        this.name = name;
+        this.qttPomodoros = qttPomodoros;
+        this.cpdPomodoros = cpdPomodoros;
+    }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private int qtdPomodoros;
+    private int qttPomodoros;
+    private int cpdPomodoros;
 
-    protected int getId() {
+    public int getId() {
         return id;
     }
 
-    protected void setId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    protected String getName() {
+    public String getName() {
         return name;
     }
 
-    protected void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    protected int getQtdPomodoros() {
-        return qtdPomodoros;
+    public int getQttPomodoros() {
+        return qttPomodoros;
     }
 
-    protected void setQtdPomodoros(int qtdPomodoros) {
-        this.qtdPomodoros = qtdPomodoros;
+    public void setQttPomodoros(int qttPomodoros) {
+        this.qttPomodoros = qttPomodoros;
     }
 
-    public int timeComplete(){
-        if (getQtdPomodoros() > 0){
-            setQtdPomodoros(getQtdPomodoros() - 1);
-            return getQtdPomodoros();
-        }
-        else {
-            return 0;
-        }
+    public int getCpdPomodoros() {
+        return cpdPomodoros;
     }
 
-
+    public void setCpdPomodoros(int cpdPomodoros) {
+        this.cpdPomodoros = cpdPomodoros;
+    }
 }

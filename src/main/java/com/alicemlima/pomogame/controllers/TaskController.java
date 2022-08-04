@@ -18,7 +18,9 @@ public class TaskController {
     //TODO add @valid
     @RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
     public @ResponseBody Task saveTask(@Validated Task task) {
+
         taskRepository.save(task);
+        System.out.println(task.getName());
         return task;
     }
     @GetMapping
